@@ -1,4 +1,5 @@
 import { BsFillBellFill, BsPersonCircle, BsSearch, BsCalendarEventFill } from 'react-icons/bs';
+import { FaCartPlus } from "react-icons/fa";
 
 function Header() {
     return (
@@ -19,17 +20,19 @@ function Header() {
                 </div>
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 gap-7">
                 <BsFillBellFill className="text-xl text-gray-500 hover:text-blue-600 cursor-pointer" />
                 <BsCalendarEventFill className="text-xl text-gray-500 hover:text-blue-600 cursor-pointer" />
-                <div>
-                    <p className="text-1xl font-bold text-gray-800 mb-2 sticky">Jabin</p>
+                <FaCartPlus className="text-xl text-gray-500 hover:text-blue-600 cursor-pointer gap-0" />
+                <div className='gap-x-7 float-left'>
+                    <p className="text-1xl font-bold text-gray-800 mb-2 sticky float-left">Jabin</p>
                     <p className="text-sm text-gray-500">Admin!</p>
                 </div>
-                <BsPersonCircle className="text-2xl text-gray-500 hover:text-blue-600 cursor-pointer" />
+                <BsPersonCircle className="text-2xl text-gray-500 hover:text-blue-600 cursor-pointer float-right" />
             </div>
         </header>
     );
 }
 
 export default Header;
+

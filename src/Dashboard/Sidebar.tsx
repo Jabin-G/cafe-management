@@ -1,6 +1,5 @@
 import { BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillGearFill } from 'react-icons/bs';
 import { CgAbstract } from "react-icons/cg";
-import { GiCookingPot } from "react-icons/gi";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { GiWallet } from "react-icons/gi";
 import { RiShoppingBag4Fill } from "react-icons/ri";
@@ -19,14 +18,13 @@ function Sidebar() {
                     <span className="text-lg font-bold">Restaurant & Cafe</span>
                 </div>
 
-                <ul className="mt-4 space-y-1">
+                <ul className="mt-4 space-y-1 board">
                     {[
                         { icon: <BsGrid1X2Fill />, label: 'Dashboard' },
                         { icon: <BsFillArchiveFill />, label: 'Menu' },
                         { icon: <BsFillGrid3X3GapFill />, label: 'Order' },
                         { icon: <BsPeopleFill />, label: ' Billing' },
                         { icon: <FaBoxes />, label: 'Inventory' },
-                        { icon: <GiCookingPot />, label: 'Recipe' },
                         { icon: <BiSolidPurchaseTag />, label: 'Purchase & Vendor' },
                         { icon: <GiWallet />, label: 'Expense' },
                         { icon: <RiShoppingBag4Fill />, label: 'Customer' },
