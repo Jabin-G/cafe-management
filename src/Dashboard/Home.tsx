@@ -59,7 +59,7 @@ function Home() {
             </div>
 
             <div className="bg-white rounded-xl shadow-sm p-5">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4">Running tables</h2>
+                <h2 className="text-lg font-semibold text-gray-800 mb-4">Recent Orders</h2>
 
                 {/* Scrollable Table Container */}
                 <div className="max-h-96 overflow-y-auto border rounded-lg">

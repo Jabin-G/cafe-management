@@ -4,6 +4,10 @@ import Header from './Dashboard/Header';
 import Home from './Dashboard/Home';
 import Cart from './Order/Cart';
 import Login from "./login/login";
+import Billing from "./billing";
+import MenuConfig from "./Configcation/MenuConfig";
+
+
 
 function App() {
   return (
@@ -30,6 +34,8 @@ function App() {
                     {/* Dashboard routes */}
                     <Route path="/" element={<Home />} />
                     <Route path="/cart" element={<Cart />} />
+                    <Route path="/Billing" element={<Billing />} />
+                    <Route path="/Menuconfig" element={<MenuConfig />} />
                   </Routes>
                 </div>
               </div>
@@ -40,5 +46,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
