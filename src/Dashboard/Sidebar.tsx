@@ -14,7 +14,6 @@ import { FaBoxes } from "react-icons/fa";
 function Sidebar() {
     const [isMenuSettingsOpen, setIsMenuSettingsOpen] = useState(false);
 
-    // ✅ Menu items with paths
     const menuItems = [
         { icon: <BsGrid1X2Fill />, label: 'Dashboard', path: '/' },
         { icon: <BsFillArchiveFill />, label: 'Menu', path: '/menu' },
@@ -24,8 +23,9 @@ function Sidebar() {
         { icon: <BiSolidPurchaseTag />, label: 'Purchase & Vendor', path: '/purchase-vendor' },
         { icon: <GiWallet />, label: 'Expense', path: '/expense' },
         { icon: <RiShoppingBag4Fill />, label: 'Customer', path: '/customer' },
-        { icon: <IoIosPeople />, label: 'Employee', path: '/employee' },
+        { icon: <IoIosPeople />, label: 'Employee', path: '/employees' },
         { icon: <MdReportProblem />, label: 'Reports', path: '/reports' },
+        { icon: <MdReportProblem />, label: 'leave', path: '/leaves' },
         { icon: <RiBarChartBoxAiFill />, label: 'Advanced Options', path: '/advanced-options' },
     ];
 
@@ -70,7 +70,7 @@ function Sidebar() {
                                 {[
                                     { label: "Submenu 1", path: "/menu-settings/submenu1" },
                                     { label: "Submenu 2", path: "/menu-settings/submenu2" },
-                                    { label: "Submenu 3", path: "/menu-settings/submenu3" },
+                                    { label: "Table 3", path: "/menu-settings/submenu3" },
                                 ].map((sub, i) => (
                                     <li key={i}>
                                         <Link

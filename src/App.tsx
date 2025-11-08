@@ -5,18 +5,16 @@ import Home from './Dashboard/Home';
 import Cart from './Order/Cart';
 import Login from "./login/login";
 import Billing from "./billing";
-import MenuConfig from "./Configcation/MenuConfig";
-
+import EmployeeTable from "./Employees/EmployeeTable";
+import MenuItem from "./Configcation/MenuItem";
+import LeaveTable from "./Leave/LeaveTable";
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Public route - Login page */}
         <Route path="/login" element={<Login />} />
-
-        {/* Protected route - Dashboard layout with Sidebar and Header */}
         <Route
           path="/*"
           element={
@@ -25,17 +23,16 @@ function App() {
               <div className="w-64 bg-white shadow-md fixed h-full">
                 <Sidebar />
               </div>
-
-              {/* Main content */}
               <div className="flex-1 ml-64">
                 <Header />
                 <div className="p-6 space-y-6">
                   <Routes>
-                    {/* Dashboard routes */}
                     <Route path="/" element={<Home />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/Billing" element={<Billing />} />
-                    <Route path="/Menuconfig" element={<MenuConfig />} />
+                    <Route path="/Menu" element={<MenuItem item={undefined} />} />
+                    <Route path="/employees" element={<EmployeeTable />} />
+                    <Route path="/Leave" element={<LeaveTable />} />
                   </Routes>
                 </div>
               </div>

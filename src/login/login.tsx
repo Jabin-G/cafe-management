@@ -14,10 +14,9 @@ const Login: React.FC = () => {
             return;
         }
 
-        // Mock login logic (replace with API call)
         if (email === "user@example.com" && password === "password123") {
             alert("Login successful!");
-            // Redirect or session handling here
+
         } else {
             setError("Invalid login credentials.");
         }

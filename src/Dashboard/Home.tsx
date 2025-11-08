@@ -116,7 +116,7 @@ function Home() {
                     </table>
                 </div>
             </div>
-            <footer className="bg-white border-t py-6 mt-auto sticky bottom-0">
+            <footer className="fixed bg-white border-t py-6 mt-auto bottom-0">
                 <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
                     <p className="text-gray-500 text-sm">&copy; {new Date().getFullYear()} My Website. All rights reserved.</p>
 
