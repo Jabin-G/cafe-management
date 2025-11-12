@@ -6,8 +6,6 @@ import Cart from './Order/Cart';
 import Login from "./login/login";
 import Billing from "./billing";
 import EmployeeTable from "./Employees/EmployeeTable";
-import MenuItem from "./Configcation/MenuItem";
-import LeaveTable from "./Leave/LeaveTable";
 
 
 function App() {
@@ -30,9 +28,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/Billing" element={<Billing />} />
-                    <Route path="/Menu" element={<MenuItem item={undefined} />} />
                     <Route path="/employees" element={<EmployeeTable />} />
-                    <Route path="/Leave" element={<LeaveTable />} />
                   </Routes>
                 </div>
               </div>
