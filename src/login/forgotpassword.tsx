@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ForgotPassword: React.FC = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate(); // ✅ fixed here
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -15,10 +17,14 @@ const ForgotPassword: React.FC = () => {
             return;
         }
 
-        // Here you would typically call your API to send a reset link
-        // For demo purposes, we just show a success message
+        // Demo: Show success message and navigate to OTP page
         setMessage(`A password reset link has been sent to ${email}`);
         setEmail("");
+
+        // Navigate to OTP page after 1 second (for demo)
+        setTimeout(() => {
+            navigate("/otp"); // OTP page route
+        }, 1000);
     };
 
     return (
@@ -60,7 +66,10 @@ const ForgotPassword: React.FC = () => {
 
                 <p className="mt-6 text-center text-sm text-gray-600">
                     Remember your password?{" "}
-                    <span className="text-blue-600 hover:underline cursor-pointer">
+                    <span
+                        onClick={() => navigate("/login")}
+                        className="text-blue-600 hover:underline cursor-pointer"
+                    >
                         Login
                     </span>
                 </p>

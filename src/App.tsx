@@ -2,10 +2,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from './Dashboard/Sidebar';
 import Header from './Dashboard/Header';
 import Home from './Dashboard/Home';
-import Cart from './Order/Cart';
 import Login from "./login/login";
 import Billing from "./billing";
 import EmployeeTable from "./Employees/EmployeeTable";
+import OtpPage from "./login/Otppage";
+import ForgotPassword from "./login/ForgotPassword";
+import Register from "./login/Register";
+import GmailMenu from "./login/GmailMenu";
+import MenuItemCard from "./Components";
+import { MenuItem } from "@material-tailwind/react";
 
 
 function App() {
@@ -13,6 +18,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/otp" element={<OtpPage />} />
+        <Route path="/gmailmenu" element={<GmailMenu />} />
         <Route
           path="/*"
           element={
@@ -26,9 +35,9 @@ function App() {
                 <div className="p-6 space-y-6">
                   <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/cart" element={<Cart />} />
                     <Route path="/Billing" element={<Billing />} />
                     <Route path="/employees" element={<EmployeeTable />} />
+                    <Route path="/meun" element={<MenuItemCard item={MenuItem} />} />
                   </Routes>
                 </div>
               </div>

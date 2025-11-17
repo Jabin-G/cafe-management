@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill } from 'react-icons/bs';
+import { BsGrid1X2Fill, BsFillArchiveFill } from 'react-icons/bs';
 import { BsPeopleFill, BsFillGearFill } from 'react-icons/bs';
 import { CgAbstract } from "react-icons/cg";
 import { BiSolidPurchaseTag } from "react-icons/bi";
@@ -17,7 +17,6 @@ function Sidebar() {
     const menuItems = [
         { icon: <BsGrid1X2Fill />, label: 'Dashboard', path: '/' },
         { icon: <BsFillArchiveFill />, label: 'Menu', path: '/menu' },
-        { icon: <BsFillGrid3X3GapFill />, label: 'Order', path: '/order' },
         { icon: <BsPeopleFill />, label: 'Billing', path: '/billing' },
         { icon: <FaBoxes />, label: 'Inventory', path: '/inventory' },
         { icon: <BiSolidPurchaseTag />, label: 'Purchase & Vendor', path: '/purchase-vendor' },
@@ -31,13 +30,11 @@ function Sidebar() {
     return (
         <aside className="h-screen flex flex-col justify-between bg-white border-r border-gray-200 shadow-sm transition-all duration-300">
 
-            {/* Header */}
             <div className="flex items-center justify-center h-16 border-b border-gray-100">
                 <CgAbstract className="text-2xl text-blue-600 mr-2" />
                 <span className="text-lg font-semibold text-gray-800">Restaurant & Cafe</span>
             </div>
 
-            {/* Main Menu */}
             <ul className="flex-1 mt-4 space-y-1 overflow-y-auto scroll-smooth">
                 {menuItems.map((item, index) => {
                     const isActive = location.pathname === item.path;
@@ -58,7 +55,6 @@ function Sidebar() {
                     );
                 })}
 
-                {/* ---- Menu Settings with Submenu ---- */}
                 <li>
                     <button
                         onClick={() => setIsMenuSettingsOpen(!isMenuSettingsOpen)}
