@@ -23,7 +23,7 @@ const Login: React.FC = () => {
 
         if (email === "jabin@example.com" && password === "password123") {
             alert("Login successful!");
-            navigate("/home");
+            navigate("/");
         } else {
             setError("Invalid login credentials.");
         }
@@ -55,13 +55,31 @@ const Login: React.FC = () => {
 
                 {/* Social Login */}
                 <div className="flex items-center justify-center gap-4 mb-6">
-                    <button className="border border-gray-300 rounded-full p-3 hover:bg-gray-50 hover:scale-110 transition-all duration-300 ease-in-out shadow-sm">
+                    <button className="border border-gray-300 rounded-full p-3 hover:bg-gray-50 hover:scale-110 transition-all duration-300 ease-in-out shadow-sm"
+                        onClick={() => {
+                            window.location.href =
+                                "https://www.facebook.com/v19.0/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URL&response_type=token"
+                        }}
+                    >
                         <FaFacebookF className="text-blue-600" />
                     </button>
-                    <button className="border border-gray-300 rounded-full p-3 hover:bg-gray-50 hover:scale-110 transition-all duration-300 ease-in-out shadow-sm">
-                        <FcGoogle onClick={() => navigate("/GmailMenu")} />
+
+                    <button
+                        className="border border-gray-300 rounded-full p-3 hover:bg-gray-50 hover:scale-110 transition-all duration-300 ease-in-out shadow-sm"
+                        onClick={() => {
+                            window.location.href =
+                                "https://accounts.google.com/o/oauth2/v2/auth?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&response_type=token&scope=email%20profile";
+                        }}
+                    >
+                        <FcGoogle />
                     </button>
-                    <button className="border border-gray-300 rounded-full p-3 hover:bg-gray-50 hover:scale-110 transition-all duration-300 ease-in-out shadow-sm">
+
+                    <button className="border border-gray-300 rounded-full p-3 hover:bg-gray-50 hover:scale-110 transition-all duration-300 ease-in-out shadow-sm"
+                        onClick={() => {
+                            window.location.href =
+                                "https://www.linkedin.com/login"
+                        }}
+                    >
                         <FaLinkedinIn className="text-blue-700" />
                     </button>
                 </div>

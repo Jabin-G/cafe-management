@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const OtpPage: React.FC = () => {
-    const [otp, setOtp] = useState("");
+    const [otp, setOtp] = useState(["", "", "", ""]);
     const [error, setError] = useState("");
+    const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
     const navigate = useNavigate();
+
+    const handleChange = (value: string, index: number) => {
+        if (!/^[0-9]?$/.test(value)) return; // allow only numbers
+
+        const newOtp = [...otp];
+        newOtp[index] = value;
+        setOtp(newOtp);
+
+        // Move to next input when a digit is entered
+        if (value && index < 3) {
+            inputsRef.current[index + 1]?.focus();
+        }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+        if (e.key === "Backspace" && !otp[index] && index > 0) {
+            inputsRef.current[index - 1]?.focus();
+        }
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
 
-        if (otp.length !== 6) {
-            setError("Please enter a 6-digit OTP.");
+        const finalOtp = otp.join("");
+
+        if (finalOtp.length !== 4) {
+            setError("Please enter a 4-digit OTP.");
             return;
         }
 
-        // Demo: Assume OTP is always correct
+        // Demo success
         alert("OTP Verified! You can now reset your password.");
-        navigate("/reset-password"); // Navigate to reset password page
+        navigate("/reset-password");
     };
 
     return (
@@ -30,22 +52,21 @@ const OtpPage: React.FC = () => {
                     Enter OTP
                 </h2>
 
-                <div className="mb-4">
-                    <label
-                        htmlFor="otp"
-                        className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                        OTP
-                    </label>
-                    <input
-                        id="otp"
-                        type="text"
-                        maxLength={6}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all"
-                        placeholder="Enter 6-digit OTP"
-                        value={otp}
-                        onChange={(e) => setOtp(e.target.value)}
-                    />
+                {/* OTP Boxes */}
+                <div className="flex justify-between mb-4">
+                    {otp.map((digit, index) => (
+                        <input
+                            key={index}
+                            type="text"
+                            maxLength={1}
+                            value={digit}
+                            ref={(el) => (inputsRef.current[index] = el)}
+                            onChange={(e) => handleChange(e.target.value, index)}
+                            onKeyDown={(e) => handleKeyDown(e, index)}
+                            className="w-14 h-14 text-center text-xl border border-gray-300 rounded-md 
+                                       focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        />
+                    ))}
                 </div>
 
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}

@@ -9,9 +9,7 @@ import OtpPage from "./login/Otppage";
 import ForgotPassword from "./login/ForgotPassword";
 import Register from "./login/Register";
 import GmailMenu from "./login/GmailMenu";
-import MenuItemCard from "./Components";
-import { MenuItem } from "@material-tailwind/react";
-
+import ResetPassword from "./login/reset_password";
 
 function App() {
   return (
@@ -22,6 +20,7 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/otp" element={<OtpPage />} />
         <Route path="/gmailmenu" element={<GmailMenu />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route
           path="/*"
           element={
@@ -37,7 +36,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/Billing" element={<Billing />} />
                     <Route path="/employees" element={<EmployeeTable />} />
-                    <Route path="/meun" element={<MenuItemCard item={MenuItem} />} />
+                    {/* <Route path="/meun" element={<MenuItemCarēd />} /> */}
                   </Routes>
                 </div>
               </div>
