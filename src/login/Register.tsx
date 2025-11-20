@@ -21,7 +21,7 @@ const Register: React.FC = () => {
         }
 
         alert("Registration successful!");
-        navigate("/login");
+        navigate("/");
     };
 
     return (
@@ -34,12 +34,13 @@ const Register: React.FC = () => {
                     <p className="mb-6 text-sm opacity-90">
                         To keep connected with us, please login with your personal info.
                     </p>
-                    <button
+
+                    {/* <button
                         onClick={() => navigate("/login")}
                         className="px-8 py-2 border border-white text-white rounded-full hover:bg-white hover:text-blue-600 transition duration-300"
                     >
                         SIGN IN
-                    </button>
+                    </button> */}
                 </div>
             </div>
 
@@ -112,6 +113,16 @@ const Register: React.FC = () => {
                     >
                         SIGN UP
                     </button>
+
+                    <p className="mt-6 text-center text-sm text-gray-600">
+                        Don’t have an account?{" "}
+                        <span
+                            onClick={() => navigate("/login")}
+                            className="text-blue-600 font-semibold hover:underline cursor-pointer transition-all duration-300"
+                        >
+                            Sign Up
+                        </span>
+                    </p>
                 </form>
             </div>
         </div>
